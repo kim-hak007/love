@@ -7,184 +7,183 @@
      <link href="/assets (2)/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="/assets (2)/assets/dist/js/bootstrap.bundle.min.js"></script>
     <!DOCTYPE html>
-<html lang="km">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Special Message For You!</title>
-    <!-- តំណភ្ជាប់ទៅកាន់ Google Fonts សម្រាប់ហ្វុन्टខ្មែរស្អាតៗ -->
+    <!-- Link to Google Fonts for English fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Moul&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* CSS សម្រាប់ការរចនា */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Koulen', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* រៀបចំធាតុពីលើចុះក្រោម */
-            height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #2193b0, #6dd5ed);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
+    /* CSS សម្រាប់ការរចនា */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Koulen', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #2193b0, #6dd5ed);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-        /* ----- រចនាស្រោមសំបុត្រ ----- */
-        .envelope-wrapper {
-            cursor: pointer;
-            position: relative;
-        }
+    /* ----- រចនាស្រោមសំបុត្រ ----- */
+    .envelope-wrapper {
+        cursor: pointer;
+        position: relative;
+    }
 
-        .envelope {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            background-color: #f08080; /* ពណ៌ស្រោមសំបុត្រ */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.6s ease-in-out;
-        }
-        
-        .flap {
-            position: absolute;
-            width: 100%;
-            height: 100px;
-            background-color: #f08080;
-            top: 0;
-            left: 0;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            transform-origin: top;
-            transition: transform 0.5s ease-in-out;
-            clip-path: polygon(0% 0%, 100% 0%, 50% 100%); /* បង្កើតជាត្រីកោណ */
-        }
+    .envelope {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: #f08080;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.6s ease-in-out;
+    }
+    
+    .flap {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        background-color: #f08080;
+        top: 0;
+        left: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transform-origin: top;
+        transition: transform 0.5s ease-in-out;
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
 
-        .letter {
-            position: absolute;
-            top: 5px;
-            left: 5%;
-            width: 90%;
-            height: 190px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            z-index: -1; /* ដាក់ក្រដាសនៅក្រោមគម្រប */
-            transition: transform 0.5s 0.2s ease-out; /* ឲ្យក្រដាសចេញមកក្រោយគម្របបើក */
-            text-align: center;
-            padding-top: 20px;
-            box-sizing: border-box;
-            color: #cd7e8a;
-        }
+    .letter {
+        position: absolute;
+        top: 5px;
+        left: 5%;
+        width: 90%;
+        height: 190px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        z-index: -1;
+        transition: transform 0.5s 0.2s ease-out;
+        text-align: center;
+        padding-top: 20px;
+        box-sizing: border-box;
+        color: #cd7e8a;
+    }
 
-        .letter .heart-icon {
-            font-size: 40px;
-        }
-        
-        /* ----- ស្ថានភាពពេលសំបុត្របើក ----- */
-        .envelope-wrapper.open .flap {
-            transform: rotateX(180deg);
-        }
+    .letter .heart-icon {
+        font-size: 40px;
+    }
+    
+    .envelope-wrapper.open .flap {
+        transform: rotateX(180deg);
+    }
 
-        .envelope-wrapper.open .letter {
-            transform: translateY(-120px);
-        }
+    .envelope-wrapper.open .letter {
+        transform: translateY(-120px);
+    }
 
-        .envelope-wrapper.open .envelope {
-             transform: translateY(100px);
-        }
+    .envelope-wrapper.open .envelope {
+         transform: translateY(100px);
+    }
 
-        /* ----- សារជូនពរពេញអេក្រង់ ----- */
-        .message-card {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none; /* មិនឲ្យចុចបានពេលលាក់ */
-            transition: opacity 0.8s 0.5s ease-in-out;
-            z-index: 100;
-        }
+    /* ----- សារជូនពរពេញអេក្រង់ ----- */
+    .message-card {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.8s 0.5s ease-in-out;
+        z-index: 100;
+    }
 
-        .message-card.show {
-            opacity: 1;
-            pointer-events: auto; /* ឲ្យចុចបានវិញពេលបង្ហាញ */
-        }
+    .message-card.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-        .message-content {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 40px 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 90%;
-            transform: scale(0.9);
-            animation: zoomIn 0.5s 0.5s forwards;
-        }
-        
-        @keyframes zoomIn {
-            to { transform: scale(1); }
-        }
+    .message-content {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.25); /* បានបង្កើនความทึบเล็กน้อย */
+        padding: 40px 60px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        max-width: 90%;
+        transform: scale(0.9);
+        animation: zoomIn 0.5s 0.5s forwards;
+    }
+    
+    @keyframes zoomIn {
+        to { transform: scale(1); }
+    }
 
-        .message-content h1 {
-            font-family: 'Moul', cursive;
-            color: #ffffff;
-            font-size: 4rem;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-        }
+    .message-content h1 {
+        font-family: 'Moul', cursive;
+        color: #404040; /* << បានកែពណ៌នៅទីនេះ (ពីសទៅប្រផេះចាស់) */
+        font-size: 4rem;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* << បានកែស្រមោលនៅទីនេះ */
+        margin-bottom: 20px;
+    }
 
-        .message-content p {
-            color: #fff;
-            font-size: 1.5rem;
-            line-height: 1.6;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-        }
+    .message-content p {
+        color: #2e2e2e; /* << បានកែពណ៌នៅទីនេះ (ពីសទៅប្រផេះរាងដិត) */
+        font-size: 1.5rem;
+        line-height: 1.6;
+        text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* << បានកែស្រមោលនៅទីនេះ */
+    }
 
-        .message-content .heart {
-            font-size: 3rem;
-            color: #ff4d6d;
-            animation: pulse 1s infinite;
-            display: inline-block;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+    .message-content .heart {
+        font-size: 3rem;
+        color: #ff4d6d;
+        animation: pulse 1s infinite;
+        display: inline-block;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
 
-        .instruction {
-            margin-top: 20px;
-            color: white;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            opacity: 1;
-            transition: opacity 0.5s;
-        }
-        
-        .envelope-wrapper.open + .instruction {
-            opacity: 0;
-        }
-
-    </style>
+    .instruction {
+        margin-top: 20px;
+        color: #404040; /* << បានកែពណ៌នៅទីនេះ */
+        font-weight: bold; /* បន្ថែមความหนา */
+        font-size: 1.2rem;
+        text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7); /* << បានកែស្រមោលនៅទីនេះ */
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+    
+    .envelope-wrapper.open + .instruction {
+        opacity: 0;
+    }
+</style>
 </head>
 <body>
 
-    <!-- ស្រោមសំបុត្រ និងសន្លឹកប័ណ្ណ -->
+    <!-- Envelope and Letter Card -->
     <div class="envelope-wrapper">
         <div class="envelope">
             <div class="letter">
@@ -194,39 +193,38 @@
         </div>
     </div>
     
-    <!-- សារណែនាំ -->
-    <p class="instruction">ចុចលើស្រោមសំបុត្រដើម្បីបើក</p>
+    <!-- Instruction Text -->
+    <p class="instruction">Click the envelope to open</p>
 
 
-    <!-- សារជូនពរដែលលាក់ទុក -->
+    <!-- Hidden Greeting Message -->
     <div class="message-card">
         <div class="message-content">
-            <h1>រីករាយខួបនៃក្តីស្រឡាញ់</h1>
+            <h1>Happy Anniversary</h1>
             <p>
-                ពេលវេលាពិតជាដើរលឿនមែន!<br>
-                សូមឲ្យក្តីស្រឡាញ់របស់យើងទាំងពីរនាក់ នៅតែផ្អែមល្ហែម ស្រស់ថ្លា និងស្ថិតស្ថេរជារៀងរហូត។<br>
-                អរគុណសម្រាប់គ្រប់យ៉ាងកន្លងមក។ <span class="heart">❤️</span>
+                Time really flies!<br>
+                May our love always remain sweet, vibrant, and strong.<br>
+                Thank you for everything. <span class="heart">❤️</span>
             </p>
         </div>
     </div>
 
 
     <script>
-        // JavaScript សម្រាប់បញ្ជាឲ្យសំបុត្របើកពេលចុច
+        // JavaScript to control the envelope opening on click
         const envelopeWrapper = document.querySelector('.envelope-wrapper');
         const messageCard = document.querySelector('.message-card');
 
         envelopeWrapper.addEventListener('click', function() {
-            // បន្ថែម class 'open' ដើម្បីឲ្យចលនា CSS ចាប់ផ្តើម
+            // Add the 'open' class to trigger the CSS animation
             envelopeWrapper.classList.add('open');
             
-            // ប្រើ setTimeout ដើម្បីរង់ចាំចលនាจบก่อนបង្ហាញសារ
+            // Use setTimeout to wait for the animation to finish before showing the message
             setTimeout(() => {
                 messageCard.classList.add('show');
-            }, 1000); // 1000 milliseconds = 1 วินาที
+            }, 1000); // 1000 milliseconds = 1 second
         });
     </script>
 
 </body>
 </html>
-
